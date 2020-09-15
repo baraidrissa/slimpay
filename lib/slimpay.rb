@@ -56,7 +56,7 @@ module Slimpay
   #   http_response: (HTTParty::Response)
   def self.answer(http_response)
     # return Slimpay::Error.empty if http_response.try(:body).nil?
-    return Slimpay::Error.empty if http_response.nil? || http_response.body.nil?
+    return Slimpay::Error.empty if ( http_response.blank? || http_response.body.blank? )
 
     if http_response.code >= 400
       Slimpay::Error.new(http_response)
