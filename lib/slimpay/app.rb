@@ -15,6 +15,33 @@ module Slimpay
       @token = response['access_token']
     end
 
+    # Change the successUrl
+    # ===== Example:
+    #   app = Slimpay::App.new
+    #   app.success_url = "mywebsite.com/client/123/"
+    def success_url(url)
+      response = HTTParty.patch("#{@endpoint}/creditors/#{@creditor_reference}/apps/#{@client_id}", body: {successUrl: url}.to_json, headers: options)
+      Slimpay.answer(response)
+    end
+
+    # Change the failureUrl
+    # ===== Example:
+    #   app = Slimpay::App.new
+    #   app.failure_url = "mywebsite.com/client/123/"
+    def failure_url(url)
+      response = HTTParty.patch("#{@endpoint}/creditors/#{@creditor_reference}/apps/#{@client_id}", body: {failureUrl: url}.to_json, headers: options)
+      Slimpay.answer(response)
+    end
+
+    # Change the cancelUrl
+    # ===== Example:
+    #   app = Slimpay::App.new
+    #   app.cancel_url = "mywebsite.com/client/123/"
+    def cancel_url(url)
+      response = HTTParty.patch("#{@endpoint}/creditors/#{@creditor_reference}/apps/#{@client_id}", body: {cancelUrl: url}.to_json, headers: options)
+      Slimpay.answer(response)
+    end
+
     # Change the returnUrl
     # ===== Example:
     #   app = Slimpay::App.new
@@ -33,6 +60,9 @@ module Slimpay
     # Change the notification and return URLs.
     #
     # ===== Arguments:
+    #   successUrl: (String) URL to your app the customer is gonna be redirected to when leaving Slimpay platform (success).
+    #   failureUrl: (String) URL to your app the customer is gonna be redirected to when leaving Slimpay platform (failure).
+    #   cancelUrl: (String) URL to your app the customer is gonna be redirected to when leaving Slimpay platform (cancel).
     #   returnUrl: (String) URL to your app the customer is gonna be redirected to when leaving Slimpay platform.
     #   notifyUrl: (String) URL to your app Slimpay is gonna send a notification to, to confirm a Signature, a payment, etc.
     def change_urls(urls_params)

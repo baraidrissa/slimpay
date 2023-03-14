@@ -39,6 +39,10 @@ Slimpay.configure do |config|
   config.creditor_reference = "your_creditor_reference"
   config.sandbox = true
   config.notify_url = 'you_notifications_url'
+  config.success_url = 'your_success_url'
+  config.failure_url = 'your_failure_url'
+  config.cancel_url = 'your_cancel_url'
+  # or
   config.return_url = 'your_return_url'
 end
 ```

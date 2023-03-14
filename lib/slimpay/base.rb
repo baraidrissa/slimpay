@@ -62,6 +62,9 @@ module Slimpay
       @client_secret = Slimpay.configuration.client_secret
       @creditor_reference = Slimpay.configuration.creditor_reference
       @sandbox = Slimpay.configuration.sandbox
+      @success_url = Slimpay.configuration.success_url
+      @failure_url = Slimpay.configuration.failure_url
+      @cancel_url = Slimpay.configuration.cancel_url
       @return_url = Slimpay.configuration.return_url
       @notify_url = Slimpay.configuration.notify_url
       @endpoint = sandbox? ? SANDBOX_ENDPOINT : PRODUCTION_ENDPOINT
