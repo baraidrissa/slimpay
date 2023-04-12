@@ -90,7 +90,7 @@ module Slimpay
     #   url: (String) URL called in the method block
     #   api_args: (String) API arguments for this URL.
     def generate_method(name, url, api_args)
-      if name.start_with?('create', 'post')
+      if name.start_with?('create', 'post', 'cancel')
         generate_post_method(name, url)
       elsif name.start_with?('patch')
         generate_patch_method(name, url)
