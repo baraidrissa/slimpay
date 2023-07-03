@@ -31,7 +31,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'activesupport'
   spec.add_dependency 'httparty', '~> 0.16'
   #spec.add_dependency 'oauth2', '~> 1.4'
-  spec.add_dependency 'oauth2', '= 1.4.7'
+  spec.add_dependency 'oauth2', '1.4.7', strict_version: true
 
   spec.add_development_dependency 'bundler', '~> 1.16'
   spec.add_development_dependency 'rake', '~> 12.0'
