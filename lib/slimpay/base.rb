@@ -68,7 +68,7 @@ module Slimpay
       @return_url = Slimpay.configuration.return_url
       @notify_url = Slimpay.configuration.notify_url
       @endpoint = sandbox? ? SANDBOX_ENDPOINT : PRODUCTION_ENDPOINT
-      @token_endpoint = @endpoint + '/oauth/token'
+      @token_endpoint = @endpoint# + '/oauth/token'
     end
 
     # A request call to the endpoint.
